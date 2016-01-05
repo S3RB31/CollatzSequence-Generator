@@ -113,7 +113,7 @@ int main(int argc, char **argv)
                 collatzGen = new CollatzTupel();
             default:
                 cerr << "Usage: \n\t"
-                      << argv[0] << "( [iStart] | [iMax] [iMin] )\n" << endl;
+                      << argv[0] << " ( [iStart] | [iMax] [iMin] ) \n" << endl;
                 
                 if(argc > 3) return 0;
         }
