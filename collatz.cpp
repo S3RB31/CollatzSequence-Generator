@@ -124,10 +124,12 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    cout << "Hello! This is your collatz-tupel:" << endl;
+    cout << "Hello! This is your collatz-tupel:\n" << endl;
+
+	int iStep = 1;
     
     do {
-        cout << collatzGen->getNum() << std::endl;        
+		cout << iStep << ":\t" << collatzGen->getNum() << std::endl; iStep++;
     } 
     while(collatzGen->getNextNumber());
 
