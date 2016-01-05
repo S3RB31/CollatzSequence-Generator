@@ -1,30 +1,22 @@
-# CollatzTupel-Generator
-Creates a sequence of numbers following the rules for construction of the Collatz problem
-
-
-LoLChecker
+CollatzTupel-Generator
 ==========
 
+Creates a sequence of numbers following the rules for construction of the Collatz problem
 
-![LoLChecker IMAGE](http://abload.de/img/unbenannt22rg7.png  "LoLChecker")
+![IMAGE](https://raw.githubusercontent.com/S3RB31/CollatzTupel-Generator/master/screen.png  "CollatzTupel generator")
 
 
-## Instructions
+## Compile
 
-__Select list in this format:__
+Compile using g++ with --std=c++0x:
 
-    username|password|*
+    g++ collatz.cpp --std=c++0x -Wall -o collatz
 
-___* is a wildcard for any additional data.___
-
-__Example:__
-
-    acc1|pw1|
-    acc2|pw2|Some Country
-    acc3|pw3|Korea|LEVEL100
-    accN|pwN|rnd!"§%2/-äÜ!"§*'!
-
-__Happy checking!__
+or simply type 
+    
+    make
+    
+on unix like systems!
 
 ## Notice
 
