@@ -8,7 +8,7 @@ Creates a sequence of numbers following the rules for construction of the Collat
 
 ## Compile
 
-Compile using g++ with --std=c++0x:
+Compile using g++:
 
     g++ collatz.cpp --std=c++0x -Wall -o collatz
 
