@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class CollatzTupel
+class CollatzSequence
 {
 public:
 
@@ -19,7 +19,7 @@ public:
         bool valid() { return (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0); }
     };
 
-    CollatzTupel(Interval_t interval) : 
+    CollatzSequence(Interval_t interval) : 
         m_Interval(interval)
     {
         cout << "Minimum: " << interval.iMin << "; Maximum: " << interval.iMax << endl;
@@ -28,7 +28,7 @@ public:
             throw invalid_argument("Invalid args! Required: (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0)");
     }
 
-    CollatzTupel(int iStart) :
+    CollatzSequence(int iStart) :
         m_Interval(Interval_t(0, 0))
     {
         if(iStart < 1)
@@ -42,10 +42,10 @@ public:
         if(m_Interval.valid())
             this->findLongest();
         else
-            this->createTupel();
+            this->createSequence();
     }
 
-    static CollatzTupel *createFromArgs(int argc, char **argv)
+    static CollatzSequence *createFromArgs(int argc, char **argv)
     {
         try 
         {
@@ -56,13 +56,13 @@ public:
                     int iMin = stringToInt(argv[1]);
                     int iMax = stringToInt(argv[2]);    
 
-                    return new CollatzTupel(CollatzTupel::Interval_t(iMin, iMax));
+                    return new CollatzSequence(CollatzSequence::Interval_t(iMin, iMax));
                 }
                 case 2:
                 { 
                     int iStart = stringToInt(argv[1]);
 
-                    return new CollatzTupel(iStart);
+                    return new CollatzSequence(iStart);
                 }
                 default:
                     cerr << "Usage: \n\t"
@@ -100,7 +100,7 @@ private:
         return false;
     }
 
-    int createTupel(bool bPrint = true)
+    int createSequence(bool bPrint = true)
     {
         do 
         { 
@@ -118,7 +118,7 @@ private:
         for(int iNum = m_Interval.iMin + 1; iNum < m_Interval.iMax; iNum++)
         {
             m_NumVec.push_back(iNum);
-            int iLength = createTupel(false);
+            int iLength = createSequence(false);
 
             if(iLength > iLongestLen)
             {
@@ -133,7 +133,7 @@ private:
         cout << "The sequence was " << iLongestLen << " numbers long: \n" << endl;
 
         m_NumVec.push_back(iLongestNum);
-        createTupel();
+        createSequence();
     }
 
     static int stringToInt(string s)
@@ -149,8 +149,8 @@ private:
 
 int main(int argc, char **argv)
 {
-    CollatzTupel *collatzGen = 
-        CollatzTupel::createFromArgs(argc, argv);
+    CollatzSequence *collatzGen = 
+        CollatzSequence::createFromArgs(argc, argv);
 
     if(collatzGen != nullptr)
     {    
