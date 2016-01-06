@@ -104,7 +104,8 @@ private:
     {
         do 
         { 
-            if(bPrint) cout << m_NumVec.size() << ":\t" << getCurrentNum() << endl; 
+            if(bPrint) 
+				cout << m_NumVec.size() << ":\t" << getCurrentNum() << endl; 
         } 
         while(pushNextNum());
 
