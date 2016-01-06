@@ -1,4 +1,4 @@
-CollatzTupel-Generator
+CollatzSequence-Generator
 ==========
 
 Creates a sequence of numbers following the rules for construction of the Collatz problem
