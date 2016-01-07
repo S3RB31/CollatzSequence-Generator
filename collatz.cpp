@@ -31,6 +31,8 @@ public:
     CollatzSequence(int iStart) :
         m_Interval(Interval_t(0, 0))
     {
+        cout << "START: " << iStart << endl;
+
         if(iStart < 1)
             throw invalid_argument("Invalid arg! Required: (iStart >= 1)");
 
