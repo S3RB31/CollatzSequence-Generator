@@ -9,36 +9,6 @@ class CollatzSequence
 {
 public:
 
-    struct Interval_t
-    {
-        int iMin, iMax;
-
-        Interval_t(int min, int max) :
-            iMin(min), iMax(max) {}
-
-        bool valid() { return (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0); }
-    };
-
-    CollatzSequence(Interval_t interval) : 
-        m_Interval(interval)
-    {
-        cout << "Minimum: " << interval.iMin << "; Maximum: " << interval.iMax << endl;
-
-        if(!interval.valid())
-            throw invalid_argument("Invalid args! Required: (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0)");
-    }
-
-    CollatzSequence(int iStart) :
-        m_Interval(Interval_t(0, 0))
-    {
-        cout << "START: " << iStart << endl;
-
-        if(iStart < 1)
-            throw invalid_argument("Invalid arg! Required: (iStart >= 1)");
-
-        m_NumVec.push_back(iStart);
-    }
-
     void start()
     {
         if(m_Interval.valid())
@@ -79,8 +49,41 @@ public:
         
 private:
 
+    struct Interval_t
+    {
+        int iMin, iMax;
+
+        Interval_t(int min, int max) :
+            iMin(min), iMax(max) {}
+
+        bool valid() 
+        { 
+            return (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0); 
+        }
+    };
+
     vector<int> m_NumVec;
     Interval_t m_Interval;
+
+    CollatzSequence(Interval_t interval) : 
+        m_Interval(interval)
+    {
+        cout << "Minimum: " << interval.iMin << "; Maximum: " << interval.iMax << endl;
+
+        if(!interval.valid())
+            throw invalid_argument("Invalid args! Required: (iMin >= 1 && iMax >= 3 && (iMax - iMin) > 0)");
+    }
+
+    CollatzSequence(int iStart) :
+        m_Interval(Interval_t(0, 0))
+    {
+        cout << "START: " << iStart << endl;
+
+        if(iStart < 1)
+            throw invalid_argument("Invalid arg! Required: (iStart >= 1)");
+
+        m_NumVec.push_back(iStart);
+    }
 
     int getCurrentNum()
     { 
